@@ -21,16 +21,16 @@ const navLinks = [
 
         <button id="menu-toggle" class="md:hidden text-white focus:outline-none z-50 p-2">
             <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+                <path id="menu-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
 
-        <ul id="nav-menu" class="fixed inset-0 bg-black flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300 md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 lg:gap-10">
+        <ul id="nav-menu" class="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300 md:relative md:inset-auto md:bg-transparent md:flex-row md:translate-x-0 lg:gap-10 overflow-y-auto">
             {navLinks.map((link) => (
                 <li class="relative group">
                     <a 
                         href={link.url} 
-                        class="cursor-pointer text-lg md:text-[10px] lg:text-xs uppercase tracking-[0.2em] text-gray-400 transition-all duration-300 font-medium group-hover:text-white flex flex-col items-center"
+                        class="cursor-pointer text-2xl md:text-[10px] lg:text-xs uppercase tracking-[0.2em] text-gray-400 transition-all duration-300 font-medium group-hover:text-white flex flex-col items-center"
                     >
                         {link.name}
                         <span class="hidden md:block absolute -bottom-2 w-1 h-1 bg-gold rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1"></span>
@@ -44,6 +44,7 @@ const navLinks = [
 <script>
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const menuPath = document.getElementById('menu-path'); // Added to target the icon path
     const body = document.body;
 
     menuToggle?.addEventListener('click', () => {
@@ -52,20 +53,22 @@ const navLinks = [
         if (isOpen) {
             navMenu?.classList.remove('translate-x-0');
             navMenu?.classList.add('translate-x-full');
-            body.style.overflow = 'auto'; // Re-enable scroll
+            menuPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Hamburger icon
+            body.style.overflow = 'auto'; 
         } else {
             navMenu?.classList.remove('translate-x-full');
             navMenu?.classList.add('translate-x-0');
-            body.style.overflow = 'hidden'; // Prevent scrolling while menu is open
+            menuPath?.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+            body.style.overflow = 'hidden'; 
         }
     });
 
-    // Close menu when a link is clicked
     const links = navMenu?.querySelectorAll('a');
     links?.forEach(link => {
         link.addEventListener('click', () => {
             navMenu?.classList.remove('translate-x-0');
             navMenu?.classList.add('translate-x-full');
+            menuPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
             body.style.overflow = 'auto';
         });
     });
