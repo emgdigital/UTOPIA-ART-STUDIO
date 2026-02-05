@@ -1,0 +1,34 @@
+---
+const navLinks = [
+  { name: "Schedule", url: "/schedule" },
+  { name: "Memberships", url: "/memberships" },
+  { name: "About Us", url: "/aboutus" },
+  { name: "Services", url: "/services" },
+  { name: "Contact", url: "/contact" },
+  { name: "Q&A", url: "/q&a" },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 px-8 py-6 flex justify-between items-center">
+    <a href="/" class="transition-opacity hover:opacity-80 cursor-pointer">
+        <img 
+            src="/MainLogo.png" 
+            alt="Utopia Studio Logo" 
+            class="h-10 md:h-12 w-auto object-contain"
+        />
+    </a>
+
+    <ul class="flex gap-8 lg:gap-10">
+        {navLinks.map((link) => (
+            <li class="relative group">
+                <a 
+                    href={link.url} 
+                    class="cursor-pointer text-[10px] md:text-xs uppercase tracking-[0.2em] text-gray-400 transition-all duration-300 font-medium group-hover:text-white flex flex-col items-center"
+                >
+                    {link.name}
+                    <span class="absolute -bottom-2 w-1 h-1 bg-gold rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1"></span>
+                </a>
+            </li>
+        ))}
+    </ul>
+</nav>

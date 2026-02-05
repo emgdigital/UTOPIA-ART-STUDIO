@@ -1,0 +1,143 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const values = [
+  { title: "AHEAD OF NOW", desc: "While we focus on the here and now, we are tuned into our future vision of a better more holistic aproach for the development of the mind, body and soul. Not only for dancers but for any individual that aligns with our values." },
+  { title: "Quality over Quantity", desc: "In a world with many options, we want to bring the best quality for our community so they have the oportunity to excel at what they want." },
+  { title: "Community First", desc: "In Utopia we put the community as a priority. We watch, we listen and we support so the community grows in harmony. Improvement is the main direction to growth." }
+];
+
+const team = [
+  {
+    name: "Ivana",
+    role: "Fitness Instructor",
+    bio: "Specialized in bodyweight training and functional movement to enhance overall fitness. Background in karate (Black belt!) with participation in international competitions. Experienced in physical training, cardio and functional workouts. 'I have created training programs for adults, both in the gym and in sessions focused on bodyweight exercises and light weights. I have also been involved in karate training for children. The workouts I design focus on proper movement, physical condition and body control.'",
+    image: "/instructors/Ivana.png"
+  },
+  {
+    name: "Sasha",
+    role: "Ballet and Stretching",
+    bio: "'Ballet captured my heart at a young age and has become a constant source of inspiration throughout my dance journey, shaping every style I've explored. Over the years, I've had the joy of teaching both children and adults, and my desire is to continue sharing the beauty and depth of classical dance in an accessible and mindful way'",
+    image: "/instructors/Sasha.png"
+  },
+  {
+    name: "Ioana Ramona",
+    role: "Aerial yoga Instructor",
+    bio: "Certified aerial yoga teacher by the Yoga Alliance since 2023. Ramona combines strength, flexibility and balance as well as helps you to let yourself be carried away by smooth movements, in a natural flow that connects your body with your breath. Each posture becomes an expression of freedom, confidence and feminine energy.",
+    image: "/instructors/ramonaweb.png"
+  },
+  {
+    name: "Ana Maria",
+    role: "Dance Instructor",
+    bio: "Specialized in Latin dances including Salsa and Bachata, bringing passion to every class",
+    image: "/images/ana.png"
+  },
+  {
+    name: "Eduardo",
+    role: "Dance Instructor",
+    bio: "Specialized in urban dance styles such as Hip-Hop and Bachata. Focus on rhythm and body isolation.",
+    image: "/instructors/meweb.png"
+  },
+  {
+    name: "Mihnea",
+    role: "Dance & FitnessInstructor",
+    bio: "Petrescu Mihnea is a Tabata instructor with over 4 years of experience and a personal trainer, specialized in the development and training of dancers. The Tabata style can be adapted and applied in multiple ways, which is why Mihnea has developed a personal technique. His classes not only include Tabata but also circuit training, and hybrid formats, combining multiple functional training techniques. Mihnea holds Personal Trainer Level 1 and Level 2 certifications, obtained through Scandinavia, enabling him to deliver structured, effective, and personalized training sessions tailored to each participant's needs.",
+    image: "/images/mihnea.png"
+  },
+  {
+    name: "Petrini M.",
+    role: "Dance Instructor and performer",
+    bio: "Petrescu Mihnea is a Tabata instructor with over 4 years of experience and a personal trainer, specialized in the development and training of dancers. The Tabata style can be adapted and applied in multiple ways, which is why Mihnea has developed a personal technique. His classes not only include Tabata but also circuit training, and hybrid formats, combining multiple functional training techniques. Mihnea holds Personal Trainer Level 1 and Level 2 certifications, obtained through Scandinavia, enabling him to deliver structured, effective, and personalized training sessions tailored to each participant's needs.",
+    image: "/images/petrini web.png"
+  },
+
+
+];
+
+---
+
+<MainLayout title="About Us | Utopia">
+
+    <main class="max-w-6xl mx-auto px-6 py-20">
+        <a href="/#home-content" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors mb-16 group uppercase text-[10px] tracking-[0.3em]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+        </a>
+
+        <section class="text-center mb-32">
+            <h1 class="text-2xl md:text-4xl font-thin tracking-[0.4em] uppercase text-white mb-12">
+                The <span class="text-gold italic font-light">Utopia</span> Vision
+            </h1>
+            <p class="text-gold uppercase tracking-[0.5em] text-[12px] font-light italic mb-26">"WE FELT IT SO WE BUILT IT"</p>
+            <div class="h-px w-24 bg-[#0F393D] mx-auto opacity-60"></div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-40">
+            {values.map((val) => (
+                <div class="border-l border-[#0F393D]/40 pl-8 py-4 group hover:border-gold transition-colors duration-500">
+                    <h3 class="text-white uppercase tracking-widest text-lg font-light mb-4">{val.title}</h3>
+                    <p class="text-gray-400 font-light text-sm leading-loose italic">{val.desc}</p>
+                </div>
+            ))}
+        </section>
+
+        <section>
+            <h2 class="text-2xl md:text-3xl font-thin tracking-[0.3em] uppercase text-white mb-20 text-center">
+                Our <span class="text-gold italic">Instructors</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                {team.map((member) => (
+                    <div class="group">
+                        <div class="relative aspect-square mb-8 overflow-hidden rounded-[40px_5px_40px_5px] border border-white/10 transition-all duration-700 group-hover:border-gold/50 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                            <img 
+                                src={member.image} 
+                                alt={member.name} 
+                                class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60"></div>
+                        </div>
+
+                        <h4 class="text-white text-xl font-light tracking-wide mb-1">{member.name}</h4>
+                        <p class="text-gold text-[12px] uppercase tracking-[0.2em] mb-4 italic">{member.role}</p>
+                        
+                        <div class="relative">
+                            <p class="bio-text text-gray-400 text-base font-light leading-loose line-clamp-4 transition-all duration-500">
+                                {member.bio}
+                            </p>
+                            <button class="read-more-btn mt-3 text-gold text-[10px] uppercase tracking-[0.3em] font-light hover:text-white transition-colors">
+                                Read More +
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    </main>
+</MainLayout>
+
+<script>
+  const buttons = document.querySelectorAll('.read-more-btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Find the paragraph that is right before this button
+      const textElement = button.previousElementSibling;
+
+      if (textElement) {
+        const isExpanded = textElement.classList.contains('line-clamp-none');
+
+        if (isExpanded) {
+          textElement.classList.remove('line-clamp-none');
+          textElement.classList.add('line-clamp-4');
+          button.textContent = 'Read More +';
+        } else {
+          textElement.classList.remove('line-clamp-4');
+          textElement.classList.add('line-clamp-none');
+          button.textContent = 'Read Less -';
+        }
+      }
+    });
+  });
+</script>

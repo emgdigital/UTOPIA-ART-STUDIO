@@ -1,0 +1,111 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<MainLayout title="Request Service | Utopia">
+
+    <main class="min-h-screen bg-[#050505] flex flex-col items-center justify-center p-6 pt-32 pb-20">
+        <h1 class="text-white text-2xl md:text-3xl font-thin tracking-[0.3em] uppercase text-center mb-30">
+            Fill the form to send us <span class="text-gold italic">a request</span>
+        </h1>
+
+        <div 
+            style="width: 600px; box-shadow: 0 0 20px rgba(0, 255, 127, 0.3), 0 0 40px rgba(15, 57, 61, 0.2);" 
+            class="bg-[#0a0a0a] p-10 rounded-[40px_10px_40px_10px] border border-[#0F393D]/50 relative mx-auto"
+        >
+            
+            <form action="https://api.web3forms.com/submit" method="POST" id="request-form">
+                <input type="hidden" name="access_key" value="9d085e6f-685c-4493-b28b-b2b1b7ce57ac">
+                <input type="hidden" name="redirect" value="http://localhost:4321/success">
+
+                <div class="flex flex-col w-full mb-10">
+                    
+                    <div class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <label class="text-gold text-[14px] uppercase tracking-[0.2em] mb-1">Name</label>
+                        <input type="text" name="first_name" autocomplete="off" required class="bg-transparent text-white text-sm focus:outline-none" placeholder="Your name">
+                    </div>
+
+                    <div class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <label class="text-gold text-[14px] uppercase tracking-[0.2em] mb-1">Surname</label>
+                        <input type="text" name="last_name" autocomplete="off" class="bg-transparent text-white text-sm focus:outline-none" placeholder="Your surname">
+                    </div>
+
+                    <div class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <label class="text-gold text-[14px] uppercase tracking-[0.2em] mb-1">Company</label>
+                        <input type="text" name="company" autocomplete="off" class="bg-transparent text-white text-sm focus:outline-none" placeholder="Optional">
+                    </div>
+
+                    <div class="py-8 text-center border-y border-white/5 mb-6">
+                        <p class="text-white text-[16px] uppercase tracking-widest italic mb-6">How do you want to be contacted?</p>
+                        <div class="grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; width: 100%;"> 
+                            <label class="flex items-center justify-center gap-4 text-gray-400 text-[12px] uppercase cursor-pointer hover:text-gold transition-colors">
+                                <input type="radio" name="contact_method" value="email" class="accent-gold h-3 w-3" checked> Email
+                            </label>
+                            <label class="flex items-center justify-center gap-4 text-gray-400 text-[12px] uppercase cursor-pointer hover:text-gold transition-colors">
+                                <input type="radio" name="contact_method" value="whatsapp" class="accent-gold h-3 w-3"> Whatsapp
+                            </label>
+                            <label class="flex items-center justify-center gap-4 text-gray-400 text-[12px] uppercase cursor-pointer hover:text-gold transition-colors">
+                                <input type="radio" name="contact_method" value="phone" class="accent-gold h-3 w-3"> Phone
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="email-field" class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <label class="text-gold text-[14px] uppercase tracking-[0.2em] mb-1">Email Address</label>
+                        <input type="email" name="email" autocomplete="off" class="bg-transparent text-white text-base focus:outline-none" placeholder="example@mail.com">
+                    </div>
+
+                    <div id="phone-field" class="hidden flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <label class="text-gold text-[14px] uppercase tracking-[0.2em] mb-1">Phone / Whatsapp</label>
+                        <input type="tel" name="phone" autocomplete="off" class="bg-transparent text-white text-base focus:outline-none" placeholder="+00 ...">
+                    </div>
+
+                    <div class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
+                        <p class="text-gold text-[14px] uppercase tracking-[0.2em] mb-2">Request Category</p>
+                        <select name="request_type" required class="bg-transparent text-white text-base focus:outline-none cursor-pointer">
+                            <option value="None" class="bg-black">None</option>
+                            <option value="Wedding dance" class="bg-black">Wedding dance</option>
+                            <option value="Private class" class="bg-black">Private class</option>
+                            <option value="Photoshoot" class="bg-black">Photoshoot</option>
+                            <option value="Video project" class="bg-black">Video project</option>
+                            <option value="Space rental" class="bg-black">Space rental</option>
+                            <option value="Other" class="bg-black">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col bg-[#1a1a1a] p-6 rounded-[30px] border border-white/5 mb-10">
+                        <p class="text-gold text-[14px] uppercase tracking-[0.2em] mb-2 italic">Tell us more about your request:</p>
+                        <textarea name="message" rows="4" autocomplete="off" required class="bg-transparent text-white text-sm focus:outline-none leading-relaxed resize-none" placeholder="Type your request..."></textarea>
+                    </div>
+
+                    <div class="flex justify-center w-full">
+                        <button type="submit" class="inline-flex items-center justify-center px-16 py-4 bg-[#0F393D] text-white rounded-full uppercase text-[12px] font-thin tracking-[0.2em] hover:bg-white hover:text-[#0F393D] transition-all duration-500 shadow-xl whitespace-nowrap min-w-112.5">
+                            Send to UTOPIA
+                        </button>
+                    </div>
+                    <p class="text-[14px] text-white tracking-widest uppercase italic mt-6 text-center">Our team will contact you within 24-48h</p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const radioButtons = document.querySelectorAll('input[name="contact_method"]');
+        const emailField = document.getElementById('email-field');
+        const phoneField = document.getElementById('phone-field');
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const target = e.target as HTMLInputElement;
+                if (target.value === 'email') {
+                    emailField?.classList.remove('hidden');
+                    phoneField?.classList.add('hidden');
+                } else {
+                    emailField?.classList.add('hidden');
+                    phoneField?.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</MainLayout>

@@ -1,0 +1,115 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+
+const services = [
+  {
+    title: "Regular Dance Classes, Extra Modules & Workshops",
+    desc: "From the fundamentals of movement to advanced choreography. Our regular classes provide a consistent path for growth, while our specialized modules and workshops dive deep into specific styles and artistic expressions. We cater to all levels, ensuring everyone finds their rhythm. Click the button to check out our passes",
+    image: "/danceservice.png",
+    buttons: [
+      { label: "Dance Classes", link: "/memberships/dance" },
+      { label: "Workshops", link: "/memberships/workshops" }
+    ],
+    layout: "left"
+  },
+  {
+    title: "Regular Fitness Classes",
+    desc: "They say that 'Power without control is nothing', like technical precision is meaningless without body awareness. Sculpt your strength and improve your mobility in an environment built for focus and athletic excellence. Click the button to check out our passes.",
+    image: "/fitserv.png",
+    buttons: [{ label: "Fitness Classes", link: "/memberships/fitness" }],
+    layout: "right"
+  },
+  {
+    title: "Regular Mindfulness Classes",
+    desc: "Align your mind and body. Explore yoga, breathwork, and meditation within our sanctuary designed for inner peace and mental clarity. Click the button to check out our passes.",
+    image: "/mindserv.png",
+    buttons: [{ label: "Mindfulness Classes", link: "/memberships/mindfulness" }],
+    layout: "left"
+  },
+  {
+    title: "Wedding Dances",
+    desc: "Create a moment that lasts forever. We choreograph personalized wedding dances tailored to your song, skill level, and story. From elegant waltzes to contemporary fusion. Click the button to book your wedding dance session",
+    image: "/weddingserv.png",
+    buttons: [{ label: "Book Your Wedding Dance", link: "/request" }],
+    layout: "right"
+  },
+  {
+    title: "Private Classes",
+    desc: "One-on-one attention for accelerated growth. Whether you are a beginner looking for confidence or an advanced dancer, our private sessions are customized to your goals. Click the button to request your private class",
+    image: "/privserv.png",
+    buttons: [{ label: "Request your Private Class", link: "/request" }],
+    layout: "left"
+  },
+  {
+    title: "Utopia Productions",
+    desc: "Professional photography and video services for events, music videos, commercials, social media content or individual personalised projects. Our team will deliver high-quality visual content tailored to your needs. Click the button to book your session",
+    image: "/photoserv1.png",
+    buttons: [{ label: "Book your photo/video session", link: "/request" }],
+    layout: "right"
+  },
+  {
+    title: "Rental of the Space",
+    desc: "UTOPIA studio is available for rehearsals, workshops, filming, private classes or events. Equipped with professional flooring, sound systems, and a cinematic lighting atmosphere. Click the button to get your quote",
+    image: "/rentalserv.png",
+    buttons: [{ label: "Enquire for Rental", link: "/request" }],
+    layout: "left"
+  }
+];
+---
+
+<MainLayout title="Our Services | Utopia">
+
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <a href="/#programs-start" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors mb-16 group uppercase text-[10px] tracking-[0.3em]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+        </a>
+
+        <header class="text-center mb-32">
+            <h1 class="text-2xl md:text-3xl font-thin tracking-[0.4em] uppercase text-white mb-6">
+                What <span class="text-gold italic">Utopia</span> offers to you?
+            </h1>
+            <div class="h-px w-24 bg-[#0F393D] mx-auto opacity-60"></div>
+        </header>
+
+        <div class="space-y-40">
+            {services.map((item) => (
+                <section class={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${item.layout === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+                    
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-2xl md:text-3xl font-thin tracking-[0.3em] uppercase text-white mb-6 leading-relaxed">
+                            {item.title}
+                        </h2>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-loose mb-10">
+                            {item.desc}
+                        </p>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 flex flex-col items-center mt-18 lg:mt-0">
+                        <div class="relative w-75 aspect-square mb-8 overflow-hidden rounded-[50px_5px_50px_5px] border border-[#0F393D]/30 group"
+                         style="width: 300px; max-width: 60%;">
+                            <img 
+                                src={item.image} 
+                                alt={item.title} 
+                                class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
+                        </div>
+
+                        <div class="flex flex-wrap justify-center gap-8">
+                            {item.buttons.map((btn) => (
+                                <a 
+                                    href={btn.link} 
+                                    class="px-8 py-3 bg-[#0F393D] text-white rounded-full uppercase text-[10px] font-thin tracking-[0.2em] transition-all duration-300 hover:bg-white hover:text-[#0F393D] hover:shadow-[0_0_20px_white]"
+                                >
+                                    {btn.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            ))}
+        </div>
+    </main>
+</MainLayout>

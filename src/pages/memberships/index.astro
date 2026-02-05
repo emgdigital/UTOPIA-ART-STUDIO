@@ -1,0 +1,53 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const categories = [
+  { title: "Dance", id: "dance", image: "/images/dance-bg.png" },
+  { title: "Fitness", id: "fitness", image: "/images/fitness-bg.png" },
+  { title: "Mindfulness", id: "mindfulness", image: "/images/mindfulness-bg.png" },
+  { title: "Workshops", id: "workshops", image: "/images/workshop-bg.png" },
+  { title: "Kids (Coming soon)", id: "kids", image: "/images/kids-bg.png" },
+];
+---
+
+<MainLayout title="Memberships | Utopia">
+    
+
+    <main class="relative min-h-screen max-w-6xl mx-auto px-6 py-20">
+        <a href="/#home-content" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors mb-12 group uppercase text-[10px] tracking-[0.3em]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+        </a>
+        <header class="text-center mb-24">
+            <h1 class="text-2xl md:text-3xl font-thin tracking-[0.4em] uppercase text-white">
+                Our <span class="text-gold italic font-light">PASSES</span>
+            </h1>
+            <div class="h-px w-24 bg-[#0F393D] mx-auto mt-18 opacity-60"></div>
+        </header>
+
+        <div class="flex flex-col gap-16">
+            {categories.map((cat) => (
+                <section 
+                    class="group relative w-full h-100 md:h-125 overflow-hidden rounded-[60px_10px_60px_10px] border border-[#0F393D]/50 bg-[#050505] transition-all duration-500 hover:shadow-[0_0_40px_rgba(15,57,61,0.3)] flex flex-col items-center justify-center text-center"
+                    style={`background-image: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url(${cat.image}); background-size: cover; background-position: center;`}
+                >
+                    <div class="absolute inset-0 bg-[#0F393D]/5 pointer-events-none group-hover:bg-transparent transition-colors"></div>
+
+                    <div class="relative z-10 px-4">
+                        <h2 class="text-1xl md:text-4xl font-thin tracking-[0.3em] uppercase text-white mb-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105">
+                            {cat.title}
+                        </h2>
+
+                        <a 
+                            href={`/memberships/${cat.id}`} 
+                            class="inline-block bg-[#0F393D] text-white px-12 py-4 rounded-full font-light italic tracking-[0.2em] uppercase text-[11px] transition-all duration-300 hover:bg-white hover:text-[#0F393D] hover:shadow-[0_0_25px_white] shadow-[0_0_15px_rgba(15,57,61,0.5)]"
+                        >
+                            Access Here
+                        </a>
+                    </div>
+                </section>
+            ))}
+        </div>
+    </main>
+</MainLayout>

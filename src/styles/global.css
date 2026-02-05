@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@layer base {
+  .bg-grain {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(100%);
+  }
+}

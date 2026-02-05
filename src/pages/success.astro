@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<MainLayout title="Message Sent | Utopia">
+
+    <main class="min-h-screen bg-[#050505] flex flex-col items-center justify-center p-6 pt-32 pb-20">
+        
+        <h1 class="text-white text-2xl md:text-3xl font-thin tracking-[0.3em] uppercase text-center mb-12">
+            Request <span class="text-gold italic">Received</span>
+        </h1>
+
+        <div 
+            style="width: 600px; box-shadow: 0 0 20px rgba(0, 255, 127, 0.3), 0 0 40px rgba(15, 57, 61, 0.2);" 
+            class="bg-[#0a0a0a] p-16 rounded-[40px_10px_40px_10px] border border-[#0F393D]/50 relative text-center"
+        >
+            <div class="w-16 h-16 border border-gold/30 rounded-full flex items-center justify-center mx-auto mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+
+            <h2 class="text-white text-[24px] font-light tracking-[0.2em] uppercase mb-8">Thank You</h2>
+            
+            <p class="text-white text-base leading-loose tracking-wide mb-12">
+                Your request has been sent to the UTOPIA's team and it's in good hands!.<br/> 
+                Thank you for trusting us in your journey.<br/>
+                We will contact you soon with the best personalised budget!<br/>
+                Have an AMAZING DAY!<br/><br/>
+                — The UTOPIA Studio Team -
+            </p>
+
+            <div class="flex justify-center w-full">
+                <a 
+                    href="/#home-content" 
+                    class="inline-flex items-center justify-center px-12 py-4 bg-[#0F393D] text-white rounded-full uppercase text-[12px] font-thin italic tracking-[0.4em] hover:bg-white hover:text-[#0F393D] transition-all duration-500 shadow-xl no-underline"
+                >
+                    Return Home
+                </a>
+            </div>
+        </div>
+
+        <p class="text-[14px] text-gray-400 tracking-widest uppercase italic mt-12">
+            Utopia Studio — Private & Professional
+        </p>
+    </main>
+</MainLayout>
