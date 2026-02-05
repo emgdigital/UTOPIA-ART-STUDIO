@@ -9,9 +9,9 @@ const navLinks = [
 ];
 ---
 
-<nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 px-6 md:px-8 py-6">
+<nav class="nav-container sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 px-6 md:px-8 py-6 w-full">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="/" class="transition-opacity hover:opacity-80 cursor-pointer z-50">
+        <a href="/" class="transition-opacity hover:opacity-80 cursor-pointer z-60">
             <img 
                 src="/MainLogo.png" 
                 alt="Utopia Studio Logo" 
@@ -19,13 +19,13 @@ const navLinks = [
             />
         </a>
 
-        <button id="menu-toggle" class="md:hidden text-white focus:outline-none z-60 p-2">
-            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path id="menu-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+        <button class="menu-toggle md:hidden text-white focus:outline-none z-60 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path class="menu-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
 
-        <ul id="nav-menu" class="fixed top-0 right-0 h-screen w-full z-55 bg-black flex flex-col items-center justify-center gap-6 translate-x-full transition-transform duration-500 ease-in-out md:relative md:h-auto md:w-auto md:bg-transparent md:flex-row md:translate-x-0 md:z-auto lg:gap-10">
+        <ul class="nav-menu fixed top-0 right-0 h-screen w-full z-50 bg-black flex flex-col items-center justify-center gap-6 translate-x-full transition-transform duration-500 ease-in-out md:relative md:h-auto md:w-auto md:bg-transparent md:flex-row md:translate-x-0 md:z-auto lg:gap-10">
             {navLinks.map((link) => (
                 <li class="relative group">
                     <a 
@@ -42,34 +42,48 @@ const navLinks = [
 </nav>
 
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const menuPath = document.getElementById('menu-path');
-    const body = document.body;
+    // This function sets up the menu logic for EVERY nav bar it finds
+    function setupNav() {
+        const navContainers = document.querySelectorAll('.nav-container');
 
-    menuToggle?.addEventListener('click', () => {
-        const isOpen = navMenu?.classList.contains('translate-x-0');
-        
-        if (isOpen) {
-            navMenu?.classList.remove('translate-x-0');
-            navMenu?.classList.add('translate-x-full');
-            menuPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
-            body.style.overflow = ''; 
-        } else {
-            navMenu?.classList.remove('translate-x-full');
-            navMenu?.classList.add('translate-x-0');
-            menuPath?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            body.style.overflow = 'hidden'; 
-        }
-    });
+        navContainers.forEach(nav => {
+            const toggle = nav.querySelector('.menu-toggle');
+            const menu = nav.querySelector('.nav-menu');
+            const path = nav.querySelector('.menu-path');
+            const body = document.body;
 
-    const links = navMenu?.querySelectorAll('a');
-    links?.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu?.classList.remove('translate-x-0');
-            navMenu?.classList.add('translate-x-full');
-            menuPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
-            body.style.overflow = '';
+            toggle?.addEventListener('click', () => {
+                const isOpen = menu?.classList.contains('translate-x-0');
+                
+                if (isOpen) {
+                    menu?.classList.remove('translate-x-0');
+                    menu?.classList.add('translate-x-full');
+                    path?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+                    body.style.overflow = ''; 
+                } else {
+                    menu?.classList.remove('translate-x-full');
+                    menu?.classList.add('translate-x-0');
+                    path?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    body.style.overflow = 'hidden'; 
+                }
+            });
+
+            // Close menu when a link is clicked
+            const links = menu?.querySelectorAll('a');
+            links?.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu?.classList.remove('translate-x-0');
+                    menu?.classList.add('translate-x-full');
+                    path?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+                    body.style.overflow = '';
+                });
+            });
         });
-    });
+    }
+
+    // Run setup on initial load
+    setupNav();
+
+    // Re-run setup if the page content changes (important for Astro transitions)
+    document.addEventListener('astro:after-swap', setupNav);
 </script>
