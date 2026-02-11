@@ -1,0 +1,52 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Terms & Conditions">
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        <header class="mb-20 text-center">
+            <h1 class="text-3xl md:text-4xl font-thin tracking-[0.4em] uppercase text-white mb-6">
+                Terms & <span class="text-gold italic">Conditions</span>
+            </h1>
+            <div class="h-px w-24 bg-gold/30 mx-auto"></div>
+        </header>
+
+        <div class="space-y-16 text-gray-400 font-light leading-relaxed text-sm md:text-base tracking-wide">
+            
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">1. Studio Access & Conduct</h2>
+                <p>By using Utopia Studio, you agree to respect the physical space, equipment, and fellow creators. We reserve the right to deny access to anyone who violates our community standards or endangers the safety of others.</p>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">2. Services & Bookings</h2>
+                <p>All requests made via our platform are subject to availability. A request does not constitute a confirmed booking until you receive a formal confirmation from our team. Rental and class fees must be paid in full via our Stripe links prior to the session start time.</p>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">3. Payments & Cancellations</h2>
+                <p>Payments are processed securely via Stripe. Cancellations made less than 24 hours before a scheduled session may not be eligible for a refund. For production and space rentals, specific contract terms provided at the time of booking will apply.</p>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">4. Liability Waiver</h2>
+                <p>Utopia Studio is not liable for personal injuries sustained during physical activities or for the loss of personal property within the premises. Users are responsible for maintaining their own insurance and practicing within their physical limits.</p>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">5. Intellectual Property</h2>
+                <p>All content created by Utopia Studio for promotional purposes remains our property. For production rentals, the rights to content created by the client are governed by the specific rental agreement signed at the time of service.</p>
+            </section>
+
+            <div class="pt-20 text-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">Effective: February 2026</p>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="/home" class="inline-block border border-[#0F393D] text-white px-10 py-3 rounded-full font-light italic text-[10px] tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D]">
+                Back to Studio
+            </a>
+        </div>
+    </main>
+</MainLayout>

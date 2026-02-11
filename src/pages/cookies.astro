@@ -1,0 +1,46 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Cookie Policy">
+    <main class="max-w-4xl mx-auto px-6 py-24">
+        <header class="mb-20 text-center">
+            <h1 class="text-3xl md:text-4xl font-thin tracking-[0.4em] uppercase text-white mb-6">
+                Cookie <span class="text-gold italic">Policy</span>
+            </h1>
+            <div class="h-px w-24 bg-gold/30 mx-auto"></div>
+        </header>
+
+        <div class="space-y-16 text-gray-400 font-light leading-relaxed text-sm md:text-base tracking-wide">
+            
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">What are Cookies?</h2>
+                <p>Cookies are small text files placed on your device to help the website function efficiently. We use them to understand how visitors interact with our "Access" flow and services.</p>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">How we use them</h2>
+                <ul class="list-disc list-inside mt-4 space-y-2 ml-4 text-gray-500">
+                    <li><strong>Essential:</strong> Needed for navigation and security.</li>
+                    <li><strong>Functional:</strong> Used by Stripe to ensure secure payment processing.</li>
+                    <li><strong>Performance:</strong> Helps us see which services (like Wedding Dance or Space Rental) are being viewed most.</li>
+                </ul>
+            </section>
+
+            <section class="border-l border-gold/20 pl-6 lg:pl-10">
+                <h2 class="text-white uppercase tracking-[0.3em] mb-4 text-sm font-medium">Your Choices</h2>
+                <p>Most browsers allow you to refuse or delete cookies via their settings. Please note that disabling essential cookies may prevent you from using certain features of the Utopia platform, such as the request forms or payment links.</p>
+            </section>
+
+            <div class="pt-20 text-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">Updated: February 2026</p>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="/home" class="inline-block border border-[#0F393D] text-white px-10 py-3 rounded-full font-light italic text-[10px] tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D]">
+                Back to Studio
+            </a>
+        </div>
+    </main>
+</MainLayout>

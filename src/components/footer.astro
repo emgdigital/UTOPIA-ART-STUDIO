@@ -1,0 +1,64 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative z-10 border-t border-white/5 bg-black/50 backdrop-blur-sm py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            
+            <div>
+                <div class="mb-2">
+                    <span class="text-white font-light tracking-[0.4em] uppercase text-xs">
+                        Utopia <span class="text-gold italic">Studio</span>
+                    </span>
+                </div>
+                <p class="text-[9px] tracking-[0.2em] uppercase text-gray-500">
+                    &copy; {currentYear} All rights reserved.
+                </p>
+                <p class="text-[7px] tracking-widest uppercase text-gray-700 mt-2">
+                    UTOPIA STUDIO S.R.L. | J[NUMBER/YEAR]
+                </p>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-6 md:gap-10">
+                <a href="/privacy" class="text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-gold transition-colors">Privacy Policy</a>
+                <a href="/cookies" class="text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-gold transition-colors">Cookie Policy</a>
+                <a href="/terms" class="text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-gold transition-colors">Terms & Conditions</a>
+            </nav>
+
+            <div class="flex gap-6">
+                <a href="https://instagram.com/utopia.artstudio" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="mt-10 pt-8 border-t border-white/5 flex flex-col items-center gap-8">
+            <div class="flex flex-col md:flex-row justify-center gap-4 w-full md:w-auto">
+                
+                <a href="https://anpc.ro/ce-este-sal/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="flex flex-col items-center justify-center px-8 py-3 border border-white/5 rounded-xl hover:border-gold/30 hover:bg-white/2 transition-all duration-500 group min-w-50">
+                    <span class="text-[7px] tracking-[0.2em] text-gray-600 group-hover:text-gold uppercase mb-1 transition-colors">Protecția Consumatorului</span>
+                    <span class="text-[10px] tracking-[0.3em] text-gray-400 group-hover:text-white font-light uppercase transition-colors text-center">A.N.P.C. — SAL</span>
+                </a>
+
+                <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="flex flex-col items-center justify-center px-8 py-3 border border-white/5 rounded-xl hover:border-gold/30 hover:bg-white/2 transition-all duration-500 group min-w-50">
+                    <span class="text-[7px] tracking-[0.2em] text-gray-600 group-hover:text-gold uppercase mb-1 transition-colors">Soluționarea Online</span>
+                    <span class="text-[10px] tracking-[0.3em] text-gray-400 group-hover:text-white font-light uppercase transition-colors text-center">A.N.P.C. — SOL</span>
+                </a>
+
+            </div>
+            
+            <p class="text-[8px] tracking-[0.5em] uppercase text-gray-700 italic">Evolution through movement and art</p>
+        </div>
+    </div>
+</footer>

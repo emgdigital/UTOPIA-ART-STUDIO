@@ -1,7 +1,11 @@
 ---
-// Added showNav to the props, defaulting to true
+// Props definition
 const { title, showNav = true } = Astro.props;
+
+// Component Imports
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/footer.astro';
+import CookieBanner from '../components/CookieBanner.astro'; // Added Import
 import '../styles/global.css';
 ---
 
@@ -13,7 +17,7 @@ import '../styles/global.css';
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>{title} | Utopia Studio</title>
 </head>
-<body class="bg-black text-white font-[Montserrat] relative overflow-x-hidden">
+<body class="bg-black text-white font-[Montserrat] relative overflow-x-hidden min-h-screen flex flex-col">
     
     <div class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-grain"></div>
     <div class="fixed top-[-10%] left-[-10%] w-125 h-125 bg-[#0F393D] rounded-full blur-[120px] opacity-30 z-0"></div>
@@ -25,8 +29,12 @@ import '../styles/global.css';
         </div>
     )}
 
-    <div class="relative z-10">
+    <div class="relative z-10 grow w-full">
         <slot />
     </div>
+
+    {showNav && <Footer />}
+
+    <CookieBanner />
 </body>
 </html>
