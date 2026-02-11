@@ -19,6 +19,9 @@ import Navigation from '../components/Navigation.astro';
                 <input type="hidden" name="access_key" value="9d085e6f-685c-4493-b28b-b2b1b7ce57ac">
                 
                 <input type="hidden" name="redirect" value="https://utopia-art-studio.vercel.app/success">
+                
+                <input type="hidden" name="subject" value="New Request from Utopia Art Studio">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                 <div class="flex flex-col w-full mb-4 md:mb-10">
                     
@@ -59,7 +62,7 @@ import Navigation from '../components/Navigation.astro';
 
                     <div id="phone-field" class="hidden flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
                         <label class="text-gold text-[12px] md:text-[14px] uppercase tracking-[0.2em] mb-1">Phone / Whatsapp</label>
-                        <input type="tel" name="phone" autocomplete="off" class="bg-transparent text-white text-base focus:outline-none" placeholder="+00 ...">
+                        <input type="tel" name="phone" autocomplete="off" class="bg-transparent text-white text-base focus:outline-none" placeholder="+40 ...">
                     </div>
 
                     <div class="flex flex-col bg-[#1a1a1a] p-5 rounded-[30px] border border-white/5 mb-6">
@@ -99,21 +102,64 @@ import Navigation from '../components/Navigation.astro';
     </main>
 
     <script>
-        const radioButtons = document.querySelectorAll('input[name="contact_method"]');
-        const emailField = document.getElementById('email-field');
-        const phoneField = document.getElementById('phone-field');
+    const form = document.getElementById('request-form') as HTMLFormElement;
+    const radioButtons = document.querySelectorAll('input[name="contact_method"]');
+    const emailField = document.getElementById('email-field');
+    const phoneField = document.getElementById('phone-field');
 
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                const target = e.target as HTMLInputElement;
-                if (target.value === 'email') {
-                    emailField?.classList.remove('hidden');
-                    phoneField?.classList.add('hidden');
-                } else {
-                    emailField?.classList.add('hidden');
-                    phoneField?.classList.remove('hidden');
-                }
-            });
+    // 1. Logic for toggling Email/Phone inputs
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const target = e.target as HTMLInputElement;
+            if (target.value === 'email') {
+                emailField?.classList.remove('hidden');
+                phoneField?.classList.add('hidden');
+            } else {
+                emailField?.classList.add('hidden');
+                phoneField?.classList.remove('hidden');
+            }
         });
+    });
+
+    // 2. Logic for Manual Redirect
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent the default "Thank You" page
+        
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+            btn.innerHTML = "SENDING...";
+            btn.setAttribute('disabled', 'true');
+        }
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+
+            const result = await response.json();
+
+            if (response.status === 200) {
+                // SUCCESS: Manually push the user to your success page
+                window.location.href = '/success';
+            } else {
+                console.error(result);
+                alert("Submission failed. Please try again.");
+                if (btn) btn.innerHTML = "Send to UTOPIA";
+            }
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred. Please check your connection.");
+            if (btn) btn.innerHTML = "Send to UTOPIA";
+        }
+    });
     </script>
 </MainLayout>
