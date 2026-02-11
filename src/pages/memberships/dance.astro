@@ -12,92 +12,44 @@ const tiers = [
     stripeUrl: "" // <--- PASTE PAYMENT LINK HERE
   },
  {
-    name: "UTOPIA SINGLE PASS",
-    price: "55RON",
+    name: "UTOPIA 1 TIME PASS",
+    price: "60RON",
     hours: "1 Hour",
     valid: "1 day / 1 class",
     audience: "New people that want to try, travellers searching for 1-2 classes while they are in town",
     stripeUrl: "https://buy.stripe.com/test_cNidR9ejC5lVagz5MF8bS00" // <--- PASTE PAYMENT LINK HERE
   },
   {
-    name: "UTOPIA M4",
+    name: "UTOPIA DANCE 4",
     price: "200RON",
-    hours: "4 Hours + Practice + 1 Bonus Hour free",
+    hours: "4 Hours + 1 Hour free for a friend",
     valid: "30 days",
     audience: "Students with not much time, coming for specific classes",
     stripeUrl: "https://buy.stripe.com/test_6oUcN5dfy15FdsL6QJ8bS01" 
   },
   {
-    name: "UTOPIA M6",
+    name: "UTOPIA DANCE 6",
     price: "250RON",
-    hours: "6 Hours + Practice + 1 Bonus Hour free",
+    hours: "6 Hours + 1 Hour free for a friend",
     valid: "30 days",
     audience: "Students with not much time, coming for specific classes",
     stripeUrl: "https://buy.stripe.com/test_6oUcN5dfy15FdsL6QJ8bS01" 
   },
   {
-    name: "UTOPIA M8",
+    name: "UTOPIA DANCE 8",
     price: "289RON",
-    hours: "8 Hours + Practice + 1 Bonus Hour free",
+    hours: "8 Hours + 1 Hour free for a friend",
     valid: "30 days",
     audience: "Students with a regular flow of classes, wanting to explore more",
     stripeUrl: "https://buy.stripe.com/test_aFabJ1cbudSr88r8YR8bS02"
   },
   {
-    name: "UTOPIA M12",
-    price: "349RON",
-    hours: "12 Hours + Practice + 1 Bonus Hour free",
+    name: "UTOPIA DANCE 12",
+    price: "389RON",
+    hours: "12 Hours + 2 Hour free for a friend",
     valid: "30 days",
     audience: "Students committed to their growth, attending multiple classes per week",
     stripeUrl: "https://buy.stripe.com/test_9B68wP4J2bKj4Wf5MF8bS03"
-  },
-  {
-    name: "UTOPIA UNLIMITED STUDENT",
-    price: "499RON",
-    hours: "Unlimited Classes + Practice + 1 Bonus Hour free",
-    valid: "30 days",
-    audience: "Dedicated students aiming for maximum growth and flexibility",
-    stripeUrl: "https://buy.stripe.com/test_fZu8wP2AU3dN74n8YR8bS04"
-  },
-  {
-    name: "UTOPIA COUPLES SINGLE PASS",
-    price: "55RON",
-    hours: "1 Hour",
-    valid: "1 day / 1 class",
-    audience: "New people that want to try, travellers searching for 1-2 classes while they are in town",
-    stripeUrl: "https://buy.stripe.com/test_fZufZh4J26pZ3Sbcb38bS05" // <--- PASTE PAYMENT LINK HERE
-  },
-  {
-    name: "UTOPIA COUPLES 4",
-    price: "359RON",
-    hours: "4 Hours + Practice for 2 people",
-    valid: "30 days",
-    audience: "Couples wanting to learn together (*Romantic relationship*)",
-    stripeUrl: "https://buy.stripe.com/test_28E00j0sM3dN4Wf1wp8bS06"
-  },
-  {
-    name: "UTOPIA COUPLES 8",
-    price: "490RON",
-    hours: "8 Hours + Practice for 2 people",
-    valid: "30 days",
-    audience: "Couples wanting to learn together (*Romantic relationship*)",
-    stripeUrl: "https://buy.stripe.com/test_aFa9ATejCbKj74n4IB8bS07"
-  },
-  {
-    name: "UTOPIA COUPLES 12",
-    price: "650RON",
-    hours: "12 Hours + Practice for 2 people",
-    valid: "30 days",
-    audience: "Couples with more experience wanting to deepen connection (*Romantic relationship*)",
-    stripeUrl: "https://buy.stripe.com/test_14A5kDcbudSrcoHfnf8bS08"
-  },
-  {
-    name: "UTOPIA UNLIMITED COUPLES",
-    price: "850RON",
-    hours: "Unlimited Classes + Practice for 2 people",
-    valid: "30 days",
-    audience: "Dedicated students aiming for maximum growth and flexibility",
-    stripeUrl: "https://buy.stripe.com/test_aFa14nejC9CbfAT6QJ8bS09"
   }
 ];
 ---
@@ -112,9 +64,11 @@ const tiers = [
         </a>
 
         <div class="text-center mb-20">
-            <h1 class="font-thin tracking-[0.4em] uppercase text-white mb-4 text-2xl md:text-3xl">
+            <h1 class="font-thin tracking-[0.4em] uppercase text-white mt-8 mb-10 text-2xl md:text-3xl">
                 DANCE <span class="text-gold italic">PASSES</span>
             </h1>
+              <p class="text-gray-500 text-xs md:text-sm tracking-[0.2em] uppercase px-4 mb-12">Direct access to our dance programs and classes. Mix and match any dance style from our regular classes.</p>
+              <p class="text-gray-400 font-light italic tracking-wide text-sm md:text-base max-w-2xl mx-auto mb-8 mt-6">*Disclaimer: Buying a dance pass only applies for dance classes and not for workshops or other non-dance programs.</p>
             <div class="h-px w-24 bg-[#0F393D] mx-auto mt-6 opacity-60"></div>
         </div>
 

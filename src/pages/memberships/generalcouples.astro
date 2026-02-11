@@ -4,33 +4,61 @@ import Navigation from '../../components/Navigation.astro';
 
 const tiers = [
   {
-    name: "UTOPIA FITNESS 1 TIME PASS",
-    price: "60RON",
+    name: "UTOPIA 1 TIME PASS",
+    price: "100RON",
     hours: "1 Hour",
     valid: "1 day / 1 class",
-    audience: "New people that want to try, travellers searching for 1-2 classes while they are in town"
+    audience: "Couples that want to try new classes together to explore the different styles we offer",
+    stripeUrl: "https://buy.stripe.com/test_cNidR9ejC5lVagz5MF8bS00" // <--- PASTE PAYMENT LINK HERE
   },
   {
-    name: "UTOPIA FITNESS 4 PASS",
-    price: "220RON",
-    hours: "4 Hours + 1 Hour free for a friend",
+    name: "UTOPIA COUPLES 4",
+    price: "420RON",
+    hours: "4 Hours each",
     valid: "30 days",
-    audience: "Students that want to combine different classes without sticking to one discipline only."
+    audience: "Couples with not much time, coming for specific classes",
+    stripeUrl: "https://buy.stripe.com/test_6oUcN5dfy15FdsL6QJ8bS01" 
   },
   {
-    name: "UTOPIA FITNESS 8 PASS",
-    price: "329RON",
-    hours: "8 Hours + 1 Hour free for a friend",
+    name: "UTOPIA COUPLES 6",
+    price: "560RON",
+    hours: "6 Hours each",
     valid: "30 days",
-    audience: "Students more into fitness committed to train a bit harder combining multiple disciplines."
+    audience: "Couples with a bit more time wanting to combine different classes",
+    stripeUrl: "https://buy.stripe.com/test_6oUcN5dfy15FdsL6QJ8bS01" 
   },
   {
-    name: "UTOPIA FITNESS 12 PASS",
-    price: "429RON",
-    hours: "12 Hours + 2 Hours free for a friend",
+    name: "UTOPIA COUPLES 8",
+    price: "610RON",
+    hours: "8 Hours each",
     valid: "30 days",
-    audience: "Students more into fitness committed to train at a maximum intensity."
+    audience: "Couples with a regular flow of classes, wanting to explore more",
+    stripeUrl: "https://buy.stripe.com/test_aFabJ1cbudSr88r8YR8bS02"
   },
+  {
+    name: "UTOPIA COUPLES 10",
+    price: "700RON",
+    hours: "10 Hours each",
+    valid: "30 days",
+    audience: "Couples with a strong motivation and flow of classes ready for the next ",
+    stripeUrl: "https://buy.stripe.com/test_aFabJ1cbudSr88r8YR8bS02"
+  },
+  {
+    name: "UTOPIA COUPLES M12",
+    price: "790RON",
+    hours: "12 Hours each",
+    valid: "30 days",
+    audience: "Couples committed to their growth, attending multiple classes per week",
+    stripeUrl: "https://buy.stripe.com/test_9B68wP4J2bKj4Wf5MF8bS03"
+  },
+  {
+    name: "UTOPIA UNLIMITED COUPLES",
+    price: "950RON",
+    hours: "Unlimited Classes + 2 Hour free for a friend",
+    valid: "30 days",
+    audience: "Dedicated couples aiming for maximum growth and flexibility together",
+    stripeUrl: "https://buy.stripe.com/test_fZu8wP2AU3dN74n8YR8bS04"
+  }
 ];
 ---
 
@@ -44,12 +72,11 @@ const tiers = [
         </a>
 
         <div class="text-center mb-20">
-            <h1 class="font-thin tracking-[0.4em] uppercase text-white mb-4 text-2xl md:text-3xl">
-                FITNESS <span class="text-gold italic">PASSES</span>
+            <h1 class="font-thin tracking-[0.4em] uppercase text-white mt-8 mb-8 text-2xl md:text-3xl">
+                GENERAL COUPLES <span class="text-gold italic">PASSES</span>
             </h1>
-            <p class="text-gray-500 text-xs md:text-sm tracking-[0.2em] uppercase px-4 mt-8 mb-8">Direct access to our fitness programs and classes. Mix and match any fitness style from our regular classes. </p>
-            <p class="text-gray-400 font-light italic tracking-wide text-sm md:text-base max-w-2xl mx-auto mb-8 mt-6">*Disclaimer: Buying a fitness pass only applies for fitness classes and not for workshops or other non-fitness programs.</p>
-            <div class="h-px w-24 bg-[#0F393D] mx-auto mt-18 opacity-60"></div>
+              <p class="text-gray-500 text-xs md:text-sm tracking-[0.2em] uppercase px-4 mb-12">The aim of 'General' passes is to have flexible options for our members that want to try the different programs we offer.</p>
+            <div class="h-px w-24 bg-[#0F393D] mx-auto mt-6 opacity-60"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,9 +120,12 @@ const tiers = [
                         </div>
                     </div>
 
-                    <button class="w-full py-4 rounded-full bg-[#0F393D] border border-[#0F393D] text-white uppercase text-[12px] font-light tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D] shadow-[0_0_15px_rgba(15,57,61,0.4)] hover:shadow-[0_0_25px_#ffffff]">
+                    <a 
+                        href={tier.stripeUrl}
+                        class="w-full py-4 rounded-full bg-[#0F393D] border border-[#0F393D] text-white uppercase text-[12px] font-light tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D] shadow-[0_0_15px_rgba(15,57,61,0.4)] hover:shadow-[0_0_25px_#ffffff] text-center no-underline flex justify-center items-center"
+                    >
                         Get pass
-                    </button>
+                    </a>
                 </div>
             ))}
         </div>

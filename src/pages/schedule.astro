@@ -8,10 +8,11 @@ const schedule = [
     duration: "60 min",
     className: "TABATA",
     instructor: "MIHNEA P.",
-    image: "/images/mihnea.png", // New field
+    image: "/images/mihnea.png",
     level: "Open Level",
     room: "Room 1",
-    status: "Available" 
+    status: "Available",
+    bookingLink: "/memberships" 
   },
   {
     day: "Monday",
@@ -19,10 +20,11 @@ const schedule = [
     duration: "60 min",
     className: "URBAN CHOREO",
     instructor: "PETRINI M.",
-    image: "/instructors/petrini.png", // New field
+    image: "/instructors/petrini.png",
     level: "Open Level",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships" 
   },
   {
     day: "Tuesday",
@@ -30,10 +32,11 @@ const schedule = [
     duration: "90 min",
     className: "BACHATA",
     instructor: "ANA and ED",
-    image: "/instructors/AnaEd.png", // New field
+    image: "/instructors/AnaEd.png",
     level: "Intermediate 1",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Tuesday",
@@ -44,7 +47,8 @@ const schedule = [
     image: "/instructors/AnaEd.png",
     level: "Intermediate-advanced",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Wednesday",
@@ -55,7 +59,8 @@ const schedule = [
     image: "/instructors/Ivana.png",
     level: "Open Level",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Wednesday",
@@ -63,10 +68,11 @@ const schedule = [
     duration: "60 min",
     className: "AERIAL YOGA",
     instructor: "RAMONA",
-    image: "/instructors/Ramona.png",
+    image: "/instructors/ramonaweb.png",
     level: "Beginner",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Thursday",
@@ -74,10 +80,11 @@ const schedule = [
     duration: "60 min",
     className: "BALLET",
     instructor: "SASHA",
-    image: "/instructors/Sasha.png",
+    image: "/instructors/sashaweb.png",
     level: "Beginner",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Thursday",
@@ -85,10 +92,11 @@ const schedule = [
     duration: "60 min",
     className: "STRETCHING",
     instructor: "SASHA",
-    image: "/instructors/Sasha.png",
+    image: "/instructors/sashaweb.png",
     level: "Open Level",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships"
   },
   {
     day: "Friday",
@@ -99,7 +107,32 @@ const schedule = [
     image: "/instructors/Ed.png",
     level: "ALL LEVELS",
     room: "Room 1",
-    status: "Available"
+    status: "Available",
+    bookingLink: "/memberships/dance"
+  },
+  {
+    day: "Friday",
+    time: "From 19:00",
+    duration: "60 min",
+    className: "SALSA MODULE FUNDAMENTALS ON 2",
+    instructor: "CLAUDIU AND LILI",
+    image: "/instructors/claudiuliliweb.png",
+    level: "Intermediate",
+    room: "Room 1",
+    status: "30 spots available",
+    bookingLink: "/memberships/workshops"
+  },
+  {
+    day: "Friday",
+    time: "From 20:00",
+    duration: "60 min",
+    className: "SALSA MODULE FLAVOURS OF SALSA",
+    instructor: "CLAUDIU AND LILI",
+    image: "/instructors/claudiuliliweb.png",
+    level: "Inter-Advanced",
+    room: "Room 1",
+    status: "30 spots available",
+    bookingLink: "/memberships/workshops"
   }
 ];
 
@@ -107,8 +140,17 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 ---
 
 <MainLayout title="Schedule | Utopia">
-  <main class="min-h-screen max-w-5xl mx-auto px-6 py-24 z-10">
+  <main class="relative min-h-screen max-w-5xl mx-auto px-6 py-24 z-10">
     
+    <div class="absolute top-10 left-6 md:left-0 z-50">
+        <a href="/home" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors group uppercase text-[10px] tracking-[0.3em]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Back Home
+        </a>
+    </div>
+
     <div class="text-center mb-16">
       <h1 class="font-thin tracking-[0.4em] uppercase text-white mb-4 text-2xl md:text-3xl">
         WEEKLY <span class="text-gold italic">SCHEDULE</span>
@@ -172,7 +214,7 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
               <span class={`text-[9px] uppercase tracking-[0.3em] text center ${item.status === 'Available' ? 'text-white/60' : 'text-gray-700'}`}>
                 {item.status}
               </span>
-              <a href="/memberships/dance" class="px-8 py-3 rounded-full bg-[#0F393D] border border-[#0F393D] text-white uppercase text-[10px] font-light tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D]">
+              <a href={item.bookingLink} class="px-8 py-3 rounded-full bg-[#0F393D] border border-[#0F393D] text-white uppercase text-[10px] font-light tracking-[0.3em] transition-all duration-300 hover:bg-white hover:text-[#0F393D]">
                 Book
               </a>
             </div>
@@ -184,9 +226,7 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 </MainLayout>
 
 <style>
-  main {
-    font-family: 'Montserrat', sans-serif;
-  }
+  main { font-family: 'Montserrat', sans-serif; }
   .day-filter.active {
     background-color: #0F393D !important;
     color: white !important;
@@ -201,21 +241,9 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 
   function filterSchedule(selectedDay: string | null): void {
     if (!selectedDay) return;
-
-    filters.forEach(btn => {
-      if (btn.getAttribute('data-day') === selectedDay) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
+    filters.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-day') === selectedDay));
     items.forEach(item => {
-      if (item.getAttribute('data-day') === selectedDay) {
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
-      }
+      item.style.display = item.getAttribute('data-day') === selectedDay ? 'flex' : 'none';
     });
   }
 

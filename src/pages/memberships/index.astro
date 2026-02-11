@@ -1,53 +1,70 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import Navigation from '../../components/Navigation.astro';
-
-const categories = [
-  { title: "Dance", id: "dance", image: "/images/dance-bg.png" },
-  { title: "Fitness", id: "fitness", image: "/images/fitness-bg.png" },
-  { title: "Mindfulness", id: "mindfulness", image: "/images/mindfulness-bg.png" },
-  { title: "Workshops", id: "workshops", image: "/images/workshop-bg.png" },
-  { title: "Kids (Coming soon)", id: "kids", image: "/images/kids-bg.png" },
-];
 ---
 
 <MainLayout title="Memberships | Utopia">
-    
+    <div class="fixed top-[-10%] left-[-10%] w-125 h-125 bg-[#0F393D] rounded-full blur-[120px] opacity-10 z-0"></div>
+    <div class="fixed bottom-[10%] right-[-5%] w-100 h-100 bg-[#14b8a6] rounded-full blur-[100px] opacity-5 z-0"></div>
 
-    <main class="relative min-h-screen max-w-6xl mx-auto px-6 py-20">
-        <a href="/#home-content" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors mb-12 group uppercase text-[10px] tracking-[0.3em]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
-            Back to Home
+    <div class="absolute top-12 left-6 md:left-12 z-50">
+        <a href="/home" class="inline-flex items-center text-gray-500 hover:text-gold transition-colors group uppercase text-[10px] tracking-[0.3em]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 group-hover:-translate-x-1 transition-transform">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Back Home
         </a>
-        <header class="text-center mb-24">
-            <h1 class="text-2xl md:text-3xl font-thin tracking-[0.4em] uppercase text-white">
-                Our <span class="text-gold italic font-light">PASSES</span>
+    </div>
+
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-32">
+        <div class="text-center mb-16">
+            <h1 class="text-white text-3xl md:text-4xl font-thin tracking-[0.4em] uppercase mb-8">
+                Membership <span class="text-gold italic">Tiers</span>
             </h1>
-            <div class="h-px w-24 bg-[#0F393D] mx-auto mt-18 opacity-60"></div>
-        </header>
+            <p class="text-gray-500 text-xs md:text-sm tracking-[0.2em] uppercase px-4 mt-8 mb-8">Direct access to our specialized programs</p>
+            <p class="text-gray-400 font-light italic tracking-wide text-sm md:text-base max-w-2xl mx-auto mt-6">*Disclaimer: Invitations CAN NOT be accumulated. Each invitation is valid for one person only. Invitations are available for the 30 days of the pass duration.</p>
+        </div>
 
-        <div class="flex flex-col gap-16">
-            {categories.map((cat) => (
-                <section 
-                    class="group relative w-full h-100 md:h-125 overflow-hidden rounded-[60px_10px_60px_10px] border border-[#0F393D]/50 bg-[#050505] transition-all duration-500 hover:shadow-[0_0_40px_rgba(15,57,61,0.3)] flex flex-col items-center justify-center text-center"
-                    style={`background-image: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url(${cat.image}); background-size: cover; background-position: center;`}
-                >
-                    <div class="absolute inset-0 bg-[#0F393D]/5 pointer-events-none group-hover:bg-transparent transition-colors"></div>
-
-                    <div class="relative z-10 px-4">
-                        <h2 class="text-1xl md:text-4xl font-thin tracking-[0.3em] uppercase text-white mb-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105">
-                            {cat.title}
-                        </h2>
-
-                        <a 
-                            href={`/memberships/${cat.id}`} 
-                            class="inline-block bg-[#0F393D] text-white px-12 py-4 rounded-full font-light italic tracking-[0.2em] uppercase text-[11px] transition-all duration-300 hover:bg-white hover:text-[#0F393D] hover:shadow-[0_0_25px_white] shadow-[0_0_15px_rgba(15,57,61,0.5)]"
-                        >
-                            Access Here
-                        </a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-6xl">
+            <div class="group relative overflow-hidden bg-[#0a0a0a] border border-white/5 rounded-[40px_10px_40px_10px] p-8 md:p-12 transition-all duration-500 shadow-2xl">
+                <div class="absolute inset-0 bg-linear-to-br from-[#0F393D]/10 to-transparent opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="mb-4 text-gold opacity-80">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </div>
-                </section>
-            ))}
+                    <h2 class="text-white text-xl font-light tracking-[0.3em] uppercase mb-8">Individual Pass</h2>
+                        <p class="text-gray-400 font-light italic tracking-wide text-sm md:text-base max-w-md text-center mb-10">For those who come individually and prefer to focus on their personal development. Access to all individual programs and classes </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                        <a href="/memberships/general-passes" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">General</a>
+                        <a href="/memberships/dance" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Dance</a>
+                        <a href="/memberships/fitness" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Fitness</a>
+                        <a href="/memberships/mindfulness" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Mindfulness</a>
+                        <a href="/memberships/workshops" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Workshops</a>
+                        <a href="/memberships/kids" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Kids</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden bg-[#0a0a0a] border border-white/5 rounded-[10px_40px_10px_40px] p-8 md:p-12 transition-all duration-500 shadow-2xl">
+                <div class="absolute inset-0 bg-linear-to-br from-[#14b8a6]/10 to-transparent opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="mb-4 text-gold opacity-80">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h2 class="text-white text-xl font-light tracking-[0.3em] uppercase mb-8">Couple Pass</h2>
+                        <p class="text-gray-400 font-light italic tracking-wide text-sm md:text-base max-w-md text-center mb-10">For those who want to share the experience with their significant other. Access to all couple programs and classes.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                        <a href="/memberships/generalcouples" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">General</a>
+                        <a href="/memberships/coupledance" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Dance</a>
+                        <a href="/memberships/couplefitness" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Fitness</a>
+                        <a href="/memberships/couplemindfulness" class="inline-block border border-white/10 bg-white/5 text-gray-400 text-[10px] uppercase tracking-[0.2em] py-4 px-2 text-center rounded-xl transition-all duration-300 hover:border-gold/50 hover:text-white hover:bg-gold/5">Mindfulness</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 </MainLayout>

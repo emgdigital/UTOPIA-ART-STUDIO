@@ -1,5 +1,6 @@
 ---
-const { title } = Astro.props;
+// Added showNav to the props, defaulting to true
+const { title, showNav = true } = Astro.props;
 import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
 ---
@@ -18,11 +19,14 @@ import '../styles/global.css';
     <div class="fixed top-[-10%] left-[-10%] w-125 h-125 bg-[#0F393D] rounded-full blur-[120px] opacity-30 z-0"></div>
     <div class="fixed bottom-[10%] right-[-5%] w-100 h-100 bg-[#14b8a6] rounded-full blur-[100px] opacity-20 z-0"></div>
 
-    <div class="relative z-50">
-        <Navigation />
-    </div>
+    {showNav && (
+        <div class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+            <Navigation />
+        </div>
+    )}
 
     <div class="relative z-10">
-        <slot /> </div>
+        <slot />
+    </div>
 </body>
 </html>
