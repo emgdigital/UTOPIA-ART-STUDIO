@@ -3,8 +3,8 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Navigation from '../components/Navigation.astro';
 
 const values = [
-  { title: "AHEAD OF NOW", desc: "While we focus on the here and now, we are tuned into our future vision of a better more holistic aproach for the development of the mind, body and soul. Not only for dancers but for any individual that aligns with our values." },
-  { title: "Quality over Quantity", desc: "In a world with many options, we want to bring the best quality for our community so they have the oportunity to excel at what they want." },
+  { title: "AHEAD OF NOW", desc: "While we focus on the here and now, we are tuned into our future vision of a better more holistic approach for the development of the mind, body and soul. Not only for dancers but for any individual that aligns with our values." },
+  { title: "Quality over Quantity", desc: "In a world with many options, we want to bring the best quality for our community so they have the opportunity to excel at what they want." },
   { title: "Community First", desc: "In Utopia we put the community as a priority. We watch, we listen and we support so the community grows in harmony. Improvement is the main direction to growth." }
 ];
 
@@ -30,31 +30,28 @@ const team = [
   {
     name: "Ana Maria",
     role: "Dance Instructor",
-    bio: "With over 10 years of experience in dance and 5 years as an instructor, Ana Maria dances Salsa, Bachata and Kizomba. Her artisitc journey has gravitated towards Bachata, the style in which she has specialised and shaped her identity as a dancer and instructor. Ana Maria has taught in various dance schools and workshops across Europe (Switzerland, Spain, Belgium, Germany, Bulgaria and more) and is appreciated for her musiciality and natural pressence in dance.",
+    bio: "With over 10 years of experience in dance and 5 years as an instructor, Ana Maria dances Salsa, Bachata and Kizomba. Her artistic journey has gravitated towards Bachata, the style in which she has specialised and shaped her identity as a dancer and instructor. Ana Maria has taught in various dance schools and workshops across Europe (Switzerland, Spain, Belgium, Germany, Bulgaria and more) and is appreciated for her musicality and natural presence in dance.",
     image: "/images/ana.png"
   },
   {
     name: "Eduardo",
     role: "Dance Instructor",
-    bio: "Specialized in urban dance styles and Bachata. Focus on rhythm and body isolation. With 10 years of experience in urban and 7 years in Bachata, Eduardo competed in European dance competitions when it comes to urban. And with his bachata, Eduardo has taught in various dance schools and workshops in Europe (Poland, Vienna, Slovakia, Hungary, Romania and more) sharing his passion for dance and helping students improve their skills and confidence on the dance floor. His holistic apporach to dance emphasizes not only technique but also musicality and self-expression, making his classes engaging and enjoyable for dancers of all levels.",
+    bio: "Specialized in urban dance styles and Bachata. Focus on rhythm and body isolation. With 10 years of experience in urban and 7 years in Bachata, Eduardo competed in European dance competitions when it comes to urban. And with his bachata, Eduardo has taught in various dance schools and workshops in Europe (Poland, Vienna, Slovakia, Hungary, Romania and more) sharing his passion for dance and helping students improve their skills and confidence on the dance floor. His holistic approach to dance emphasizes not only technique but also musicality and self-expression, making his classes engaging and enjoyable for dancers of all levels.",
     image: "/instructors/meweb.png"
   },
   {
     name: "Mihnea",
-    role: "Dance & FitnessInstructor",
+    role: "Dance & Fitness Instructor",
     bio: "Petrescu Mihnea is a Tabata instructor with over 4 years of experience and a personal trainer, specialized in the development and training of dancers. The Tabata style can be adapted and applied in multiple ways, which is why Mihnea has developed a personal technique. His classes not only include Tabata but also circuit training, and hybrid formats, combining multiple functional training techniques. Mihnea holds Personal Trainer Level 1 and Level 2 certifications, obtained through Scandinavia, enabling him to deliver structured, effective, and personalized training sessions tailored to each participant's needs.",
     image: "/images/mihnea.png"
   },
   {
     name: "Petrini M.",
     role: "Dance Instructor and performer",
-    bio: "Petrini Mihai is a professional dancer, choreographer and international recognized educator with experience in street dance, contemporary, and freestyle performance. He has served as a judge at major dance competitions accross Europe and has delivered workshops and regular classes that inspire and elevate dancers of all ages and levels. He has tought in countries like Slovakia, Turkey, Egypt, Moldova, Switzerland and Austria. Some of the achievments he has accomplished are: Finalist on 'The Ticket' 2025 together with the duo 'The Petrinis'. Judge at the World of Dance Ukraine, Moldova and Slovakia, as well as the Dance Star competition. Collaborated with brand such as NIKE, Youtube, Givenchy and Made by Society. Member of the performer teams on Romania's got Talent, The Voice Romania and X Factor Romania.",
+    bio: "Petrini Mihai is a professional dancer, choreographer and international recognized educator with experience in street dance, contemporary, and freestyle performance. He has served as a judge at major dance competitions across Europe and has delivered workshops and regular classes that inspire and elevate dancers of all ages and levels. He has taught in countries like Slovakia, Turkey, Egypt, Moldova, Switzerland and Austria. Some of the achievements he has accomplished are: Finalist on 'The Ticket' 2025 together with the duo 'The Petrinis'. Judge at the World of Dance Ukraine, Moldova and Slovakia, as well as the Dance Star competition. Collaborated with brand such as NIKE, Youtube, Givenchy and Made by Society. Member of the performer teams on Romania's got Talent, The Voice Romania and X Factor Romania.",
     image: "/images/petrini web.png"
   },
-
-
 ];
-
 ---
 
 <MainLayout title="About Us | Utopia">
@@ -65,15 +62,15 @@ const team = [
             Back Home
         </a>
 
-        <section class="text-center mb-32">
-            <h1 class="text-2xl md:text-4xl font-thin tracking-[0.4em] uppercase text-white mb-12">
+        <section class="text-center mb-16">
+            <h1 class="text-2xl md:text-4xl font-thin tracking-[0.4em] uppercase text-white mb-8">
                 The <span class="text-gold italic font-light">Utopia</span> Vision
             </h1>
             <p class="text-gold uppercase tracking-[0.5em] text-[12px] font-light italic mb-12">"WE FELT IT SO WE BUILT IT"</p>
             <div class="h-px w-24 bg-[#0F393D] mx-auto opacity-60"></div>
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-40">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 mb-20">
             {values.map((val) => (
                 <div class="border-l border-[#0F393D]/40 pl-8 py-4 group hover:border-gold transition-colors duration-500">
                     <h3 class="text-white uppercase tracking-widest text-lg font-light mb-4">{val.title}</h3>
@@ -122,7 +119,6 @@ const team = [
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // Find the paragraph that is right before this button
       const textElement = button.previousElementSibling;
 
       if (textElement) {
