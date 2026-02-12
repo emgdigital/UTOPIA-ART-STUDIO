@@ -1,7 +1,36 @@
 @import "tailwindcss";
+
 @layer base {
   .bg-grain {
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
     filter: contrast(150%) brightness(100%);
   }
+
+  /* Standard CSS Keyframes */
+  @keyframes lava-lamp {
+  0% { 
+    transform: translate(0, 0) scale(1) rotate(0deg); 
+  }
+  33% { 
+    /* Move right and up, expand slightly */
+    transform: translate(150px, -100px) scale(1.3) rotate(10deg); 
+  }
+  66% { 
+    /* Move left and further up, shrink slightly */
+    transform: translate(-50px, -180px) scale(0.9) rotate(-10deg); 
+  }
+  100% { 
+    transform: translate(0, 0) scale(1) rotate(0deg); 
+  }
+}
+
+.animate-nebula {
+  /* 12s is the 'sweet spot' for a lava lamp—not too fast, not too slow */
+  animation: lava-lamp 6s ease-in-out infinite;
+}
+
+.animate-nebula-slow {
+  /* 18s and reversed for the second shape creates that 'crossing' liquid effect */
+  animation: lava-lamp 6s ease-in-out infinite reverse;
+}
 }
