@@ -38,10 +38,10 @@
   }
 
   .animate-nebula {
-    animation: lava-lamp 6s ease-in-out infinite;
+    animation: lava-lamp 4s ease-in-out infinite;
   }
 
   .animate-nebula-slow {
-    animation: lava-lamp 6s ease-in-out infinite reverse;
+    animation: lava-lamp 4s ease-in-out infinite reverse;
   }
 }
